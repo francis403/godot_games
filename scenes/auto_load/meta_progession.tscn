@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctlimk5wnnht4"]
+
+[ext_resource type="Script" path="res://scenes/auto_load/meta_progession.gd" id="1_5wmoc"]
+
+[node name="MetaProgession" type="Node"]
+script = ExtResource("1_5wmoc")

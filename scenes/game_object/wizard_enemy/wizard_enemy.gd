@@ -2,8 +2,11 @@ extends CharacterBody2D
 
 @onready var visuals_node = $Visuals
 @onready var velocity_component = $VelocityComponent
-
+@onready var hit_audio_component = $HitAudioPlayerComponent
 var is_moving = false
+
+func _ready():
+	$HurtboxComponent.hit.connect(on_hit)
 
 func _process(delta: float) -> void:
 	if is_moving:
@@ -21,3 +24,6 @@ func _process(delta: float) -> void:
 
 func set_is_moving(moving: bool):
 	is_moving = moving
+
+func on_hit():
+	hit_audio_component.play_random()

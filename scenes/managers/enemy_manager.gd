@@ -30,12 +30,13 @@ func get_spawn_position():
 	var spawn_position = Vector2.ZERO
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
 	for i in 4:
+		var additional_check_offset = random_direction * 20
 		spawn_position = player.global_position + (random_direction * SPAWN_RADIUS)
 			
 	#	Raycast check - the 1 is the bit value of the terrain mask (1 << 0)
 		var query_parameters = PhysicsRayQueryParameters2D.create(
 			player.global_position,
-			spawn_position,
+			spawn_position + spawn_position,
 			1
 		)
 		var result = get_tree().root.world_2d.direct_space_state.intersect_ray(query_parameters)
